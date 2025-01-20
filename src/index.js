@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDB from './config/dbConfig.js';
 import apiRouter from "./routers/apiRouter.js";
+import ip from 'ip';
 
 const PORT = 3000;
 
@@ -13,7 +14,8 @@ app.use(express.urlencoded({extended: true}));
 app.use("/api", apiRouter);//if any request comes to /api, then use the apiRouter to handle the request. That means, if the url starts with /api, then use the apiRouter to handle the request.
 
 app.get('/ping', (req, res) => {
-    res.json({message: "pong"});
+    const ipaddr = ip.address();
+    return res.json({message: "pong" + " " + ipaddr});
 });
 
 app.listen(PORT, () => {
