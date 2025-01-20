@@ -1,6 +1,6 @@
 import express from 'express';
-import connectDB from './src/config/dbConfig.js';
-import apiRouter from "./src/routers/apiRouter.js";
+import connectDB from './config/dbConfig.js';
+import apiRouter from "./routers/apiRouter.js";
 
 const PORT = 3000;
 
