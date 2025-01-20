@@ -12,6 +12,10 @@ app.use(express.urlencoded({extended: true}));
 
 app.use("/api", apiRouter);//if any request comes to /api, then use the apiRouter to handle the request. That means, if the url starts with /api, then use the apiRouter to handle the request.
 
+app.get('/ping', (req, res) => {
+    res.json({message: "pong"});
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     connectDB();
